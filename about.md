@@ -2,7 +2,7 @@
 title: About
 layout: page
 ---
-![Profile Image]({{ site.url }}/{{ site.picture }})
+![Profile Image]({{ site.url }}/{{ site.pictures }})
 
 <h2>Life</h2>
 
