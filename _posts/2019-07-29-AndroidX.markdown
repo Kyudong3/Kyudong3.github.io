@@ -46,7 +46,7 @@ Android developer 사이트에 들어가보면 이렇게 나와 있습니다.
 
 <img width="281" alt="androidX_refac" src="https://user-images.githubusercontent.com/18525504/62025752-0ab16a00-b214-11e9-8b36-a407966f805c.png">
 
-** Migrate to AndroidX... ** 를 클릭하시면 되네요!! 엄청 쉽네요! 
+**Migrate to AndroidX...** 를 클릭하시면 되네요!! 엄청 쉽네요! 
 
 
 
