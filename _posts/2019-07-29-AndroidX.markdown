@@ -1,0 +1,32 @@
+---
+title: "AndroidX란?"
+layout: post
+date: 2019-07-29 14:39
+image: /assets/images/markdown.jpg
+headerImage: false
+tag:
+- android
+category: blog
+author: kyudongPark
+description: about AndroidX
+---
+
+## Intro
+
+이 글에서는 AndroidX에 대해서 알아보겠습니다. 
+[Link to AndroidX](https://developer.android.com/jetpack/androidx){: target="_blank"} 를 참고하여 작성하였습니다. 
+
+## AndroidX 란?
+
+Android developer 사이트에 들어가보면 이렇게 나와 있습니다. _AndroidX is the open-source project that the Android team uses to develop, test, package, version and release libraries within Jetpack._
+이 말은 **AndroidX는 Android 팀이 Jetpack 내에서 라이브러리를 개발, 테스트, 패키지화, 버전 및 릴리스하기 위해 사용하는 오픈 소스 프로젝트입니다.** 라는 말입니다. 
+안드로이드 라이브러리 28.0.0 이전에 사용하던 com.android.support.* 또는 android.support.*, android.arch.* 의 패키지명을 androidx.* 으로 변경하였습니다. 
+
+
+
+
+
+
+
+
+
