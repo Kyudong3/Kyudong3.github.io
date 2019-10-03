@@ -15,13 +15,14 @@ description: Difference of also, let, with, apply, run in Kotlin
 
 그동안 코틀린을 사용하면서 헷갈렸던 run, with, apply, also, let에 대해서 알아보는 시간을 가지도록 하겠습니다.
 
-자바에는 없지만 코틀린에서는 기본적으로 제공하는 함수 라이브러리들이 있습니다.  그 중에 run, with, apply, also, let은 Scope Function에 해당됩니다.
+자바에는 없지만 코틀린에서는 기본적으로 제공하는 함수 라이브러리들이 있습니다.  
+그 중에 run, with, apply, also, let은 Scope Function에 해당됩니다.
 
 왜 scope function을 사용하는 걸까요? **객체에 접근하는 방법을 간단하게 해서 코드를 간결하게 하고 가독성을 높일 수 있기 때문입니다.**
 그 전에 scope function을 이해하기 위해서 리시버와 람다함수에 대해 잠깐 소개하도록 하겠습니다.
-#Scope function을 사용하면 두 개의 객체를 넘겨주게 되는데 바로 **리시버** 와 **람다함수** 입니다.
+# Scope function을 사용하면 두 개의 객체를 넘겨주게 되는데 바로 **리시버** 와 **람다함수** 입니다.
 
-```kotlin
+```java
 Person("KyuDong", 27, "Korea").let {
   println(it)
   it.moveTo("London")
