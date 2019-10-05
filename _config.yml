@@ -1,6 +1,6 @@
 # main text of home
 name: Kyu Dong Park
-bio: A developer who wants to be better than now
+bio: A developer who wants to make better software
 
 # twitter summary info
 description: A blog about technology
@@ -60,11 +60,11 @@ authors:
 # do you want a larger site? change the option below
 # options: [normal, large] | default: normal
 # normal = 560px / large = 810px
-width: normal
+width: large
 
 # if you don't need pagination, comment the *paginate* configs below
-# paginate: 5
-# paginate_path: "blog/:num/"
+paginate: 6
+paginate_path: "blog/:num/"
 
 # if you don't need projects, comment the *projects* configs below
 projects: true
