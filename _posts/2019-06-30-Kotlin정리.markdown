@@ -168,7 +168,7 @@ fun main() {
 위에서 run은 확장함수라고 했지만, **run** 은 **non-extension** 함수로도 사용할 수 있습니다. **val num = run { }** 이런 식으로 말이죠.
 
 ## apply
-**apply** 는 **this** 를 사용하여 객체에 접근하고 리비서 객체 자체를 리턴합니다.
+**apply** 는 **this** 를 사용하여 객체에 접근하고 리시버 객체 자체를 리턴합니다.
 
 **apply** 는 
 * 값을 리턴하지 않거나
@@ -188,6 +188,26 @@ fun main() {
 위 코드를 보면 리시버인 **Person** 객체가 있습니다. **Adam** 이라는 객체는 **age = 32 , city = London** 의 멤버를 가지고 이 객체를 반환하는 것을 볼 수 있습니다.
 
 ## also
-마지막으로 **also** 는 
+마지막으로 **also** 는 **it** 를 사용하여 객체에 접근하고 리시버 객체 자체를 리턴합니다.
+
+**also** 는 
+* logging이나 debug정보를 프린트 하는 것처럼 객체 정보를 바꾸지 않을 때 
+주로 사용합니다. 
+
+```java
+fun main() {
+    val numbers = mutableListOf("one", "two", "three")
+    numbers.also { println("The list elements before adding new one: $it") }
+           .add("four")
+}
+```
+
+위 코드를 보면 리비서 객체 numbers의 **also** 의 블록 안에는 단순히 내용을 출력하는 것을 볼 수 있습니다.
+
+
+## 결론
+처음에는 헷갈리지만 공부하고 코드에 적용해보면 생각보다 자주 사용하게 되는 패턴들이 있다는 것을 알 수 있습니다!  
+
+혹시나 틀린 게 있다면 댓글 남겨주시면 감사하겠습니다 :)
 
 
