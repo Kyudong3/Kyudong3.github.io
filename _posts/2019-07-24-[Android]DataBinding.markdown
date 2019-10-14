@@ -1,5 +1,5 @@
 ---
-title: "Data Binding"
+title: "[Android] Data Binding"
 layout: post
 date: 2019-07-24 22:48
 image: /assets/images/markdown.jpg

@@ -1,5 +1,5 @@
 ---
-title: "코틀린의 Scope function(also, let, with, apply, run)"
+title: "[Kotlin] 코틀린의 Scope function"
 layout: post
 date: 2019-06-30 15:48
 image: /assets/images/markdown.jpg

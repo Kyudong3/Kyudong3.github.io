@@ -1,5 +1,5 @@
 ---
-title: "ios 생명주기(Life Cycle)"
+title: "[iOS] ios 생명주기(Life Cycle)"
 layout: post
 date: 2019-07-26 17:00
 image: /assets/images/markdown.jpg
