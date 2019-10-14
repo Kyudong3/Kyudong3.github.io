@@ -17,9 +17,15 @@ description: 옵저버 패턴이란?
 ## 옵저버 패턴?
 --- 
 한 객체의 상태 변화에 따라 다른 객체의 상태도 변화하도록 일대다 객체 의존 관계를 구성하는 패턴입니다. Subject에 observer들이 일대다로 연결되며 의존합니다. 
-옵저버 패턴(Observer Pattern)을 한 문장으로 표현하자면
+
+신문 구독의 예를 들어 옵저버 패턴(Observer Pattern)을 한 문장으로 표현하자면
 * Observer Pattern = Publisher(출판사) + Subscriber(구독자) 
 입니다.
+
+이해하기 쉽게 그림으로 표현하면 
+![observerPatternImage](../assets/images/observerPattern.jpeg)
+
+이렇습니다.
 
 
 
