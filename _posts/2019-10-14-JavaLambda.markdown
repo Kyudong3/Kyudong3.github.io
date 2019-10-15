@@ -6,7 +6,6 @@ image: /assets/images/markdown.jpg
 headerImage: false
 tag:
 - Java
-- stream
 category: blog
 author: kyudongPark
 description: 람다란?
@@ -42,8 +41,6 @@ Java8에서 추가 된 중요한 것 2가지를 뽑으라 한다면 아마 **람
 
 // ( ) 생략
 a - > a + 1
-
-....
 ```
 
 람다는 
@@ -62,7 +59,7 @@ a - > a + 1
 오른쪽 중괄호 { } 블록이 있고, 이를 실행하기 위해 필요한 값인 매개변수가 있습니다. -> 는 매개변수를 이용해서 람다의 바디를 실행한다는 뜻입니다. 
 
 ```java
-(int a, int b) -> {return a + b}
+(int a, int b) -> { return a + b }
 ```
 
 위 구조를 람다식을 사용하지 않는다면
@@ -132,7 +129,6 @@ study.addStudy("알고리즘");
 // 결과값 : 스터디그룹 이름은 알고리즘 입니다. 
 ```
 
-
 위와 같은 코드가 될 것입니다. 
 
 이처럼 익명 객체를 람다식으로 바꿔 사용할 수 있는 이유는 람다식도 익명 객체이며, 매개변수의 타입과 갯수, 리턴값이 일치하기 때문입니다. 
@@ -142,5 +138,4 @@ study.addStudy("알고리즘");
 
 ## 예제
 
-코드를 통해 람다식을 어떻게 만들 
 
