@@ -171,14 +171,15 @@ Study study = new Study() {
 @FunctionalInterface 애노테이션을 이용해서 함수형 인터페이스를 직접 만들어서 사용할 수 있지만, Java8 에서는 몇 가지 기본적인 api를 제공해준다. 
 
 **java.util.function** 패키지에 있으며
-|함수형 인터페이스|메소드|설명|
-|------|---|---|
-|Runnable|void run()|매개변수 X, 반환값 X (실행할 수 있는 인터페이스)|
-|Supplier|T get|매개변수 X, 반환값 O (제공할 수 있는 인터페이스)|
-|Consumer|void accept(T t)|매개변수 O, 반환값 X (소비할 수 있는 인터페이스)|
-|Function<T,R>|R apply(T t)|일반적 함수. 하나의 매개변수를 받아 결과를 반환 (입력을 받아 출력할 수 있는 인터페이스)|
-|Predicate|Boolean test(T t)|조건식을 표현. 참 거짓 판단할 수 잇는 인터페이스|
-|UnaryOperator|T apply(T t)|단항 연산할 수 있는 인터페이스|
+
+| 함수형 인터페이스 | 메소드            | 설명                                                                                    |
+|-------------------|-------------------|-----------------------------------------------------------------------------------------|
+| Runnable          | void run()        | 매개변수 X, 반환값 X (실행할 수 있는 인터페이스)                                        |
+| Supplier          | T get             | 매개변수 X, 반환값 O (제공할 수 있는 인터페이스)                                        |
+| Consumer          | void accept(T t)  | 매개변수 O, 반환값 X (소비할 수 있는 인터페이스)                                        |
+| Function<T, R>    | R apply(T t)      | 일반적 함수. 하나의 매개변수를 받아 결과를 반환 (입력을 받아 출력할 수 있는 인터페이스) |
+| Predicate         | boolean test(T t) | 조건식을 표현. 참 거짓 판단할 수 잇는 인터페이스                                        |
+| UnaryOperator     | T apply(T t)      | 단항 연산할 수 있는 인터페이스          
 
 등의 함수들이 있다. 
 
