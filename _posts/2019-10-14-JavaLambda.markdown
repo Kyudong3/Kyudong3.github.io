@@ -17,19 +17,19 @@ Java8에서 추가 된 중요한 것 2가지를 뽑으라 한다면 아마 **람
 
 ## Why Lambda?
 
-람다에 대해 자세히 알아보기 전에 우선 Java에 람다가 왜 등장하게 되었는지 알 필요가 있습니다. 왜 람다를 사용할까요? 바로 자바에 함수형 프로그래밍을 도입하기 위해서입니다. 
+람다에 대해 자세히 알아보기 전에 우선 Java에 람다가 왜 등장하게 되었는지 알 필요가 있습니다. 왜 람다를 사용할까요? 바로 자바에 **함수형 프로그래밍** 을 도입하기 위해서입니다. 
 그렇다면 왜 함수형 프로그래밍이 필요한 것일까요? 함수형 프로그래밍은 기존 프로그래밍과는 다르게 생각하는 방법을 알려주기 때문입니다.  
 자바를 예를 들어 설명하면, 자바는 객체지향 프로그래밍 언어입니다. 객체지향에서는 객체가 일급 객체가 되고 캡슐화, 상속, 다형성 등의 특징을 가지고 있습니다. 
 또한 모든 데이터가 객체로 이루어져 있으며, 객체에서 상태를 저장하고 관리합니다. 객체지향에서는 함수라는 개념이 존재하지 않습니다. 반대로 함수형 프로그래밍은 상태와 데이터의 변경을 최대한 피하면서 코딩하는 것입니다. 더 간단하게 대입문이 없습니다. 
-대입문이 없기에 우리는 함수에게 결과를 계산하는 것 외에 다른 효과를 기대할 수 없습니다. 이는 부수 효과(side effect)가 전혀 없다는 말이 됩니다.
-함수는 오직 Input에 의해서만 Output이 달라져야 합니다.
+대입문이 없기에 우리는 함수에게 결과를 계산하는 것 외에 다른 효과를 기대할 수 없습니다. 이는 **부수 효과(side effect)** 가 전혀 없다는 말이 됩니다.
+함수는 오직 **Input에 의해서만 Output이 달라져야 합니다.**
 
 
 
 ## 람다(Lambda)?
 
-그렇다면 람다(Lambda)는 무엇일까요?  
-람다식은 자바에서 함수형 프로그래밍을 표현하기 위해 사용되며 메소드를 하나의 식(Expression)으로 표현한 것입니다. 메소드 이름과 리턴타입이 사라지게 되므로 익명함수(anonymous function)라고도 한다.
+그렇다면 **람다(Lambda)** 는 무엇일까요?  
+람다식은 자바에서 함수형 프로그래밍을 표현하기 위해 사용되며 **메소드를 하나의 식(Expression)으로 표현한 것** 입니다. 메소드 이름과 리턴타입이 사라지게 되므로 **익명함수(anonymous function)** 라고도 한다.
 
 람다를 사용하게 되면 코드를 간결하게 만들 수 있고, 가독성이 향상되며 병렬 프로그래밍이 쉬워집니다. 
 
@@ -45,6 +45,7 @@ a - > a + 1
 ```
 
 람다는 
+
 * 매개변수 타입 추론 가능
 * 람다식 문법을 컴파일러가 익명 클래스로 변환
 * 반환값이 있는 메서드는 return 대신 식(expression)으로 대신한다
@@ -75,8 +76,8 @@ public int MethodName(int a, int b) {
 
 ## 함수형 인터페이스 (Functional Interface)
 
-람다의 표현식을 알았다면 다음은 함수형 인터페이스이다.  
-함수형 인터페이스는 단 하나의 추상 메소드(abstract method)를 가지고 있으며 람다식을 사용하기 위한 명칭이다. 
+람다의 표현식을 알았다면 다음은 **함수형 인터페이스이다.**  
+함수형 인터페이스는 단 하나의 **추상 메소드(abstract method)** 를 가지고 있으며 람다식을 사용하기 위한 명칭이다. 
 
 예를 들어, 아래와 같이 Study 인터페이스에 추상 메소드가 2개 이상이 되어버리면 함수형 인터페이스가 아니다. 
 
@@ -137,7 +138,7 @@ study.addStudy("알고리즘");
 그런데 여러명이서 함께 이 코드를 관리한다고 할 때 만약 다른 사람이 Study 인터페이스를 수정하려 한다면 어떻게 해야 할까요?!
 다른 곳에 인터페이스를 사용하는 람다식이 있다는 걸 모르고 말이죠. 에러가 나게 되겠죠?? 
 
-이런 일을 막기 위해서 우리는 사용할 수 있는 것이 있습니다. 바로 애노테이션입니다. @FunctionalInterface 애노테이션을 붙여주면 해당 인터페이스가 함수형 인터페이스인지 컴파일러가 확인해줍니다.
+이런 일을 막기 위해서 우리는 사용할 수 있는 것이 있습니다. 바로 애노테이션입니다. **@FunctionalInterface 애노테이션** 을 붙여주면 해당 인터페이스가 함수형 인터페이스인지 컴파일러가 확인해줍니다.
 
 ```java
 @FunctionInterface
@@ -146,9 +147,9 @@ interface Study {
 }
 ```
 
-FunctionalInterface 애노테이션을 꼭 붙여야 하는 것은 아니랍니다! 하지만 함수형 인터페이스라는 것을 알리기 위함이니 붙이는게 좋을 듯 싶습니다!
+@FunctionalInterface 애노테이션을 꼭 붙여야 하는 것은 아니랍니다! 하지만 함수형 인터페이스라는 것을 알리기 위함이니 붙이는게 좋을 듯 싶습니다!
 
-또한 람다식으로 구현할 때 객체는 상태를 가질 수 없습니다. 이게 무슨 말일까요?  
+또한 람다식으로 구현할 때 객체는 **상태를 가질 수 없습니다.** 이게 무슨 말일까요?  
 익명 객체에서는 아래와 같이 studyName 이라는 필드를 가질 수 있지만 람다에서는 바로 식으로 표현되니 필드가 들어갈 수 없습니다. 
 
 ```java
@@ -184,6 +185,55 @@ Study study = new Study() {
 등의 함수들이 있다. 
 
 
-## 예제
+예를 들어, StudyGroup 클래스가 있다고 한다면 (Predicate 사용)
+```
+// 특정 Predicate를 사용해 특정 조건에 따라 스터디 그룹 리스트를 가져오는 메소드 
+static List<StudyGroup> getStudyGroupList(List<StudyGroup> groups, Predicate<StudyGroup> predicate){
+    List<StudyGroup> resultList = new ArrayList<>();
+    for(StudyGroup group : groups){
+        if(predicate.test(fruit)){
+            resultList.add(group);
+        }
+    }
+
+    return resultList;
+}
+
+// 호출하는 부분 
+List<StudyGroup> groups = Arrays.asList(new StudyGroup("Algorithm", 10), new StudyGroup("Network", 20), new StudyGroup("Kotlin", 30));
+List<StudyGroup> kotlinGroup = getStudyGroupList(groups, new Predicate<StudyGroup>() {
+    @Override
+    public boolean test(StudyGroup group) {
+        return "Kotlin".equals(group.getName());
+    }
+});
+
+
+// 위에 호출하는 부분을 간단하게 람다식으로 표현할 수 있다. 
+List<StudyGroup> kotlinGroup = getStudyGroupList(groups, group -> "Kotlin".equals(group.getName());
+
+```
+
+
+## 메소드 참조
+람다식이 하나의 메소드만 호출하는 경우, **메소드 참조** 를 통해 람다식을 간단히 할 수 있다.
+클래스명::메소드명 or 참조변수::메소드명
+
+```java
+// 메소드 참조 적용 전
+studyGroupList.forEach(group -> System.out.println(group));
+
+// 메소드 참조 적용 후
+studyGroupList.forEach(System.out::println);
+
+// 생성자 참조 
+Supplier<StudyGroupClass> s = () -> new StudyGroupClass();  // 람다식
+Supplier<StudyGroupClass> s = StudyGroupClass::new; // 메서드 참조
+```
+
+메소드 참조가 어떻게 적용된 것일까? 위 코드를 보면  
+ArrayList.forEach -> Consumer.appect -> System.out.println 의 콜스택을 가지고 있다.
+Consumer은 매개변수는 있고 반환값은 없는 소비할 수 있는 인터페이스이므로 필요가 없다. 따라서 메소드 참조에 의해 변하게 되는 것이다. 
+
 
 
