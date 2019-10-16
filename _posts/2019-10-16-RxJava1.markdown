@@ -77,5 +77,78 @@ Observable은 아이템을 내보내고( onNext() ) 성공적으로 완료( onCo
 Cold, Hot Observable은 다른 포스트를 참고하면 좋을 것 같습니다!  
 [Hot, Cold Observable](http://kyudong3.github.io)
 
+<br>
+<br>
 
+이제 RxJava가 대충 어떤 것인지 알았다면 코드를 보면서 RxJava의 기초에 대해 알아보겠습니다. 
+
+<br>
+<br>
+
+## RxJava 기초부터 차근차근   
+
+[Rxjava](https://blog.danlew.net/2014/09/15/grokking-rxjava-part-1/) 를 토대로 작성하였습니다. 
+
+<br>
+
+#### 우선 Observable을 생성해보자
+
+**Observable은 데이터를 제공하는 생산자로**
+* 새로운 데이터를 전달하는 **onNext()** 
+* 스트림을 종료하는 **onCompleted()**
+* 에러 신호를 전달하는 **onError()** 
+의 3가지 행동을 한다. 
+
+<br>
+
+```java
+// Observable은 "Hello, KD!" 를 방출하고 complete 한다.
+Observable<String> myObservable = Observable.create(
+        new Observable.OnSubscribe<String>() {
+            @Override
+            public void call(Subscriber<? super String> subscriber) {
+                subscriber.onNext("Hello, KD!");
+                subscriber.onCompleted();
+            }
+        }
+);
+```
+
+<br>
+
+#### 이번에는 Subscriber을 생성해보자 
+
+**Subscriber** 는
+* 데이터 소비
+* Observable이 만드는 스트림에 반응하여 처리할 수 있도록 대칭적으로 인터페이스가 구성
+
+<br>
+
+```java
+// Observable에 의해 방출된 각각의 스트림을 onNext()에서 단순히 프린트 하는 코드 
+Subscriber<String> mySubscriber = new Subscriber<String>() {
+    @Override
+    public void onCompleted() { }
+
+    @Override
+    public void onError(Throwable e) { }
+
+    @Override
+    public void onNext(String s) { System.out.println(s); }
+};
+```
+
+<br>
+
+#### 이제 Observable과 Subscriber를 연결해보자
+
+* **subscribe()** 함수를 통해 Observable과 구독자 연결
+* Subscription(구독)이 생성되면 myObservable은 Subscriber의 onNext()와 onComplete() 메소드 호출
+* mySubscriber는 "Hello, KD!" 출력하고 종료 
+
+<br>
+
+```java
+myObservable.subscribe(mySubscriber);
+```
 
