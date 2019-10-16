@@ -13,6 +13,10 @@ description: RxJava의 Cold, Hot Observable에 대해
 
 이번에는 RxJava를 이해하기 위해 **Hot , Cold Observable** 에 대해 알아보도록 하겠습니다. 
 
+<br>
+<br>
+<br>
+<br>
 ## 개념 
 ***
 RxJava를 공부하다 보면 Hot, Cold 라는 말을 자주 볼 수 있습니다. 이게 무슨 말일까요.... 처음 이 말을 보았을 때 저는 어리둥절 하였답니다.
