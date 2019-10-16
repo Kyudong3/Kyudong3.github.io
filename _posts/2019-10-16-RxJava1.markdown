@@ -38,13 +38,9 @@ Reactive 프로그래밍을 자바에서 사용해야 하기 때문입니다. �
 
 넷플릭스에서 RxJava를 만들게 된 중요한 이유 3가지가 있다고 합니다.
 * Embrance Concurrency (동시성을 적극적으로 끌어안는다)
-<br>
 * Java Futures are expensive to compose (Future를 조합하기 어렵다)
-<br>
-<br>
 * Callbacks have their own problems (콜백의 문제점) 
 
-<br>
 <br>
 
 자바는 동시성 처리를 하는데 번거로움이 있어 서비스 계층에서 동시성을 적극적으로 끌어안았다.  
