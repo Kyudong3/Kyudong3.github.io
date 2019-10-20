@@ -12,7 +12,7 @@ author: kyudongPark
 description: 조합(Combination)에 대해서 정리한 글
 ---
 
-이번 프스트에는 **조합(Combination)** 에 대해 알아보도록 하겠습니다. 
+이번 포스트에는 **조합(Combination)** 에 대해 알아보도록 하겠습니다. 
 
 ## 조합(Combination) 
 
