@@ -1,11 +1,12 @@
 ---
-title: "[Algorithm] 조합(Combination)"
+title: "[Java] 조합(Combination)"
 layout: post
 date: 2019-10-18 19:10
 image: /assets/images/markdown.jpg
 headerImage: false
 tag:
 - Algorithm
+- Java
 category: blog
 author: kyudongPark
 description: 조합(Combination)에 대해서 정리한 글
@@ -16,7 +17,6 @@ description: 조합(Combination)에 대해서 정리한 글
 ## 조합(Combination) 
 
 알고리즘 문제를 풀다 보면 조합과 순열을 이용해서 문제를 풀어야 하는 경우를 다수 보게 된다. 먼저 조합에 대해 알아보겠습니다.  
-보통 알고리즘 문제에서는 2가지 경우를 물어봅니다. **조합의 갯수* 와 **조합의 나열**
 
 우선, 조합의 정의는  
 > **서로 다른 n개의 원소 중에서 k개를 뽑는(취하는) 것**
@@ -55,11 +55,22 @@ description: 조합(Combination)에 대해서 정리한 글
 즉, 트리의 형태로 보게 된다면  
 우선, 1을 선택한 경우와 선택하지 않은 경우로 나뉜다. 먼저 1을 선택한 경우에는 다음 뽑는 원소로 2를 선택할 경우와 선택하지 않을 경우로 나뉘게 된다. 1을 선택하지 않은 경우에는 스킵하고 2를 선택할 경우와 선택하지 않는 경우로 나뉜다. 이렇게 쭉쭉 트리의 형태로 뻗어나가게 됩니다. 
 
-    
-<br>
+트리의 형태로 도식화하면 
+![combinationTree](../assets/images/combTree.jpeg)
 
-재귀함수를 사용한 코드를 통해 살펴보도록 하겠습니다. 재귀함수를 이용하여 모든 경우를 탐색하도록 합니다.  
-재귀(recursion)에서 중요한 것은 재귀의 종료와 탈출 조건이 있어야 하는 것입니다.
+( 1 2 ) ( 1 3 ) ( 1 4 ) ( 2 3 ) ( 2 4 ) ( 3 4 ) 6가지 경우가 나오게 됩니다. 
+    
+
+우리는 이것을 재귀함수를 사용하여 모든 경우를 탐색할 것입니다.  
+재귀(recursion)에서 중요한 것은 재귀의 종료와 탈출 조건이 있어야 하는 것입니다. 위 트리를 보면 원소가 4개뿐이라 쉽지만 갯수가 많아질수록 더 복잡한 트리의 형태가 나타나게 됩니다.  
+그렇다면 위 트리에서 종료와 탈출 조건은 무엇일까요?
+
+* **2개를 모두 뽑았을 경우**
+* **뽑든 안뽑든 탐색을 모두 마쳤을 경우**
+
+2개를 모두 뽑았을 경우 **r == 0** 이 되어 더 이상 뽑을 수 없습니다. 또한 탐색을 모두 마쳤을 경우에도 종료하게 됩니다. 
+
+보통 알고리즘 문제에서는 2가지 경우를 물어봅니다. **조합의 갯수* 와 **조합의 나열**
 
 먼저 **조합의 갯수** 는
 
@@ -68,10 +79,82 @@ description: 조합(Combination)에 대해서 정리한 글
         if (r == 0 || n == r) {
             return 1;
         } else {
+            // 재귀(recursion)
             return combinationNum(n - 1, r - 1) + combinationNum(n - 1, r);
         }
     }
 ```
 
+의 코드를 통해 구할 수 있습니다.
+
+**조합의 나열** 은 갯수 구하는 것보다 아주 조금 복잡합니다. 
+
+```java
+    public static void main(String[] args) {
+        int[] list = new int[2];
+        printCombination(list, 5, 2, 0, 1);
+    }
+
+    static void printCombination(int[] arr, int n, int r, int index, int target) {
+        // 2개의 원소를 다 뽑아 r이 0이 된 경우 
+        if (r == 0) {
+            for(int i : arr) {
+                System.out.print(i + " ");
+            }
+            System.out.println();
+            return;
+        }
+        
+        // 2개의 원소를 다 뽑지 못하였더라도 모든 탐색을 마쳐서 종료하는 경우 
+        if (n == target) return;
+
+        arr[index] = target;
+        
+        // 뽑았으므로 index 1증가, 뽑아야하는 갯수 1 감소 (r-1)
+        // 원소를 결정하였으므로 target 1 증가 
+        printCombination(arr, n, r - 1, index + 1, target + 1);
+        
+        // 뽑지 않았으므로 index는 그대로, r도 그대로
+        // 원소를 결정하지 않았으므로 target 1 증가
+        printCombination(arr, n, r, index, target + 1);
+    }
+```
+
+* **arr** 은 뽑는 갯수만큼의 공간을 가지는 배열
+* **index** 는 구한 원소의 갯수
+* **target** 은 탐색의 종료를 위해 어느것부터 원소를 선택할지
+* **n** 은 원소의 갯수, **r** 은 뽑는 갯수
+
+만약 { 1 2 3 4 } 에서 ( 1 ? ) 와 같이 1을 뽑았으면 arr배열의 첫 원소는 뽑은 것이기 때문에 index를 1 증가시킨다. 다음 원소로는 { 2 3 4 } 중 한 개를 뽑는 것이기 때문에 r은 1 감소시킨다. 또한, 원소를 결정하였으므로 target도 1을 증가시킨다.  
+만약 { 1 2 3 4 } 에서 ( ? ? ) 와 같이 1을 뽑지 않았으면 arr배열의 첫 원소는 뽑은 것이 아니기 때문에 index는 그대로 두고 r 또한 그대로 둔다. 
+1을 뽑지 않았으므로 target은 1 증가시켜 ( 2 ? ) 와 같이 2부터 뽑을 수 있도록 한다. 
 
 
+
+
+## 중복 조합
+
+중복조합은 
+> **<sub>n</sub></em>H<em><sub>r</sub></em>** 입니다.
+
+{ 1 2 3 4 } 4개의 원소 중에서 중복을 허용하여 뽑게 된다면  
+( 1 1 ), ( 1 2 ), ( 1 3 ), ( 1 4 ), ( 2 2 ), ( 2 3 ), ( 2 4 ), ( 3 3 ), ( 3 4 ), ( 4 4 ) 총 10가지 경우가 나오게 됩니다. 
+
+```java
+    static void combinationH(int[] arr, int n, int r, int index, int target) {
+        if (r == 0) {
+            for(int i : arr) {
+                System.out.print(i + " ");
+            }
+            System.out.println();
+            return;
+        }
+        if (n == target) return;
+
+        arr[index] = target;
+        combinationH(arr, n, r - 1, index + 1, target);
+        combinationH(arr, n, r, index, target + 1);
+    }
+```
+
+조합과의 차이점은 원소를 뽑았어도 target을 증가시키지 않는 것입니다. 
