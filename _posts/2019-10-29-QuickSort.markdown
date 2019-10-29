@@ -99,6 +99,10 @@ fun quickSort(arrList: Array<Int>, first: Int, last: Int) {
 
 
 그렇다면 퀵 소트의 시간복잡도는 어떻게 될까요?  
+최악의 경우와 최상의 경우를 알아보도록 하겠습니다.  
+
+우선, 최상의 경우에는 아래와 같이 진행될 때입니다. 
+
 
 
 
