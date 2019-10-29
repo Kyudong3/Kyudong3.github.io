@@ -103,7 +103,10 @@ fun quickSort(arrList: Array<Int>, first: Int, last: Int) {
 
 우선, 최상의 경우에는 아래와 같이 진행될 때입니다. 
 
+![Best](../assets/images/divideBest.jpeg)
 
 
+다음으로, 최악의 경우에는 아래와 같이 진행될 때입니다. 
 
+![Worst](../assets/images/divideWorst.jpeg)
 
