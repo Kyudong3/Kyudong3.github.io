@@ -22,8 +22,8 @@ description: about QuickSort
 
 **분할 정복(divide and conquer)** 은  
 
-> 문제를 2개 이상의 작은 문제로 나누고 **( divide )**
-> 각각의 작은 문제를 해결한 다음 **( conquer )**
+> 문제를 2개 이상의 작은 문제로 나누고 **( divide )**  
+> 각각의 작은 문제를 해결한 다음 **( conquer )**  
 > 합병하여 원래의 문제를 해결하는 전략 **( combine )**
 
 분할 정복 방법은 보통 재귀를 사용하여 해결합니다. 
@@ -32,10 +32,10 @@ description: about QuickSort
 
 아래의 코드를 먼저 보도록 하겠습니다. 
 
-> pivot - 기준값
-> left - 시작 index
-> right - 끝 index
-> { 1 , 3 , 10 , -1 , 7 , 9 , -20 , 123 , 6 , 4 } 배열
+> pivot - 기준값  
+> left - 시작 index  
+> right - 끝 index  
+> { 1 , 3 , 10 , -1 , 7 , 9 , -20 , 123 , 6 , 4 } 배열  
 
 ```kotlin
 fun main() {
@@ -98,6 +98,7 @@ fun quickSort(arrList: Array<Int>, first: Int, last: Int) {
 이건 pivot을 기준으로 배열을 한 번 돌았을 때의 과정을 그림으로 나타낸 것이니, 다음 그림은 각자 그려보시면서 공부하면 좋을 것 같습니다! 
 
 
+그렇다면 퀵 소트의 시간복잡도는 어떻게 될까요?  
 
 
 
